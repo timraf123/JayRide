@@ -4,6 +4,10 @@ Browse to
 https://localhost:44350/JayRide/Index
 
 ipAddress hard coded for local machine "49.199.8.210"
+NumPassengers input 
+Name input
+Phone input
+
 
 Task 1
 
