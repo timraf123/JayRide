@@ -11,6 +11,8 @@ using Newtonsoft.Json;
 using System.Web;
 using System.Xml;
 using System.Data;
+using System.Collections.Generic;
+
 namespace WebApplication6.Models
 {
     public class IPDataIPSTACK
@@ -59,18 +61,17 @@ namespace WebApplication6.Models
 
             string iPAdresss = "49.199.8.210";
             string city = GetLocationIPSTACK(iPAdresss);
-
-            jayRideListing.PrintJayRideListing();
-            double d = jayRideListing.CalcTotalPrice(5);
+             
+    
 
       
         }
 
 
-        public void FilterListings(int numPassengers)
+        public List<Listing> FilterListings(int numPassengers)
         {
 
-            jayRideListing.CalcTotalPrice(numPassengers);
+            return jayRideListing.CalcTotalPrices(numPassengers);
 
         }
 
@@ -79,7 +80,7 @@ namespace WebApplication6.Models
             try
             {
                 IPDataIPSTACK ipInfo = new IPDataIPSTACK();
-                string strResponse = new WebClient().DownloadString("http://api.ipstack.com/" + iPAdresss + "?access_key=309be3c590c3ca59f9b3b9390226c9ab");
+                string strResponse = new WebClient().DownloadString("http://api.ipstack.com/" + iPAdresss + "?access_key=affe0189487d942ac4ee516897fb03d1");
 
 
                 if (strResponse == null || strResponse == "") return "";

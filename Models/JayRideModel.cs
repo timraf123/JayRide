@@ -32,6 +32,15 @@ namespace WebApplication6.Models
             set { ipAddress = value; }  // set method
         }
 
+        private string location;
+
+        public string Location   // property
+        {
+            get { return location; }   // get method
+            set { location = value; }  // set method
+        }
+
+
         private int numPassengers;
 
         public int NumPassengers   // property
@@ -40,7 +49,12 @@ namespace WebApplication6.Models
             set { numPassengers = value; }  // set method
         }
 
-
+        private List<Listing> listingsResult;
+        public  List<Listing> ListingsResult
+        {
+            get { return listingsResult; }   // get method
+            set { listingsResult = value; }  // set method
+        }
 
         public JayRideModel()
         {
@@ -49,9 +63,10 @@ namespace WebApplication6.Models
             this.name = "J.Smith";
             this.phone = "04123456";
             this.ipAddress = "49.199.8.210";
+            this.numPassengers = 3;
             jayRideDataModel = new JayRideDataModel();
-            jayRideDataModel.GetLocation(ipAddress);
-            jayRideDataModel.FilterListings(numPassengers);
+            this.location =  jayRideDataModel.GetLocation(ipAddress);
+            this.listingsResult =  jayRideDataModel.FilterListings(numPassengers);
 
              
         }

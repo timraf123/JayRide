@@ -37,7 +37,7 @@ namespace WebApplication6.Models
         ///  ttoal price is price per passenger * numPassengers
         /// </summary>
         /// <returns></returns>
-        public double CalcTotalPrice(int numPassengers)
+        public List<Listing> CalcTotalPrices(int numPassengers)
         {
             Console.Write(this.from);
             Console.Write(this.to);
@@ -57,7 +57,7 @@ namespace WebApplication6.Models
  
             listingsResult = (List<Listing>)listingsResult.OrderBy(x => x.totalPrice).ToList();
  
-            return totalPrice;
+            return listingsResult;
         }
          
     
