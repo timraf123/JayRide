@@ -13,5 +13,13 @@ Returns the city location that corresponds to this IP address
 
 Task 3
 
+Utilising the listings array, filter out listings that don’t support the number
+of passengers. With the remaining listings, calculate the total price and
+return the results sorted by total price
+
+AFTER filtering listings
 ![After sort](https://user-images.githubusercontent.com/74038553/220506623-8bf966ee-ea57-43bc-bb31-60f3a093893d.png)
-![Before Sort](https://user-images.githubusercontent.com/74038553/220506664-6890f215-34f2-4659-8bef-7b19c73581ab.png)
+
+BEFORE filtering listings
+
+![Before Sort](https://user-images.githubusercontent.com/74038553/220507070-cee35ebe-059c-44c8-9e26-2b340203c1f7.png)
