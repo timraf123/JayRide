@@ -16,8 +16,8 @@ Returns the city location that corresponds to this IP address
 
 
 
-T![lowestPrice](https://user-images.githubusercontent.com/74038553/220517499-314893e0-06e1-4db9-814a-514de315576d.png)
-ask 3
+![lowestPrice](https://user-images.githubusercontent.com/74038553/220517499-314893e0-06e1-4db9-814a-514de315576d.png)
+Task 3
 
 Utilising the listings array, filter out listings that don’t support the number
 of passengers. With the remaining listings, calculate the total price and
