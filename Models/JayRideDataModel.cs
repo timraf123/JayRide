@@ -61,28 +61,22 @@ namespace WebApplication6.Models
 
             string iPAdresss = "49.199.8.210";
             string city = GetLocationIPSTACK(iPAdresss);
-             
-    
-
-      
         }
 
 
-        public List<Listing> FilterListings(int numPassengers)
+        public List<Listing> FilterListings(int numPassengers, ref double lowestPrice )
         {
-
-            return jayRideListing.CalcTotalPrices(numPassengers);
-
+            return jayRideListing.CalcTotalPrices(numPassengers, ref lowestPrice);
         }
 
+ 
         private static string GetLocationIPSTACK(string iPAdresss)
         {
             try
             {
                 IPDataIPSTACK ipInfo = new IPDataIPSTACK();
                 string strResponse = new WebClient().DownloadString("http://api.ipstack.com/" + iPAdresss + "?access_key=affe0189487d942ac4ee516897fb03d1");
-
-
+     
                 if (strResponse == null || strResponse == "") return "";
 
                 ipInfo = JsonConvert.DeserializeObject<IPDataIPSTACK>(strResponse);
@@ -105,7 +99,6 @@ namespace WebApplication6.Models
             }
             catch
             {
-                // can't parse JSON, return the original string
                 return str;
             }
         }

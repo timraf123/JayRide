@@ -48,6 +48,14 @@ namespace WebApplication6.Models
             get { return numPassengers; }   // get method
             set { numPassengers = value; }  // set method
         }
+        
+        private double lowestPrice;
+
+        public double LowestPrice   // property
+        {
+            get { return lowestPrice; }   // get method
+            set { lowestPrice = value; }  // set method
+        }
 
         private List<Listing> listingsResult;
         public  List<Listing> ListingsResult
@@ -66,9 +74,9 @@ namespace WebApplication6.Models
             this.numPassengers = 3;
             jayRideDataModel = new JayRideDataModel();
             this.location =  jayRideDataModel.GetLocation(ipAddress);
-            this.listingsResult =  jayRideDataModel.FilterListings(numPassengers);
-
-             
+            double lowestPrice = 0;
+            this.listingsResult =  jayRideDataModel.FilterListings(numPassengers, ref lowestPrice);
+            this.lowestPrice = lowestPrice;
         }
 
  

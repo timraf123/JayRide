@@ -11,24 +11,10 @@ namespace WebApplication6.Models
 
         public string to { get; set; }
         public List<Listing> listings { get; set; }
-        public JayRideListing()
+       
+    public JayRideListing()
         { 
         
-        }
-
-        public void PrintJayRideListing()
-        {
-            Console.Write(this.from);
-            Console.Write(this.to);
-
-
-            foreach (var j in listings)
-            {
-                Console.Write(j.pricePerPassenger);
-                Console.Write(j.name);
-                Console.Write(j.vehicleType);
-
-            }
         }
 
 
@@ -37,18 +23,15 @@ namespace WebApplication6.Models
         ///  ttoal price is price per passenger * numPassengers
         /// </summary>
         /// <returns></returns>
-        public List<Listing> CalcTotalPrices(int numPassengers)
+        public List<Listing> CalcTotalPrices(int numPassengers, ref double lowestPrice)
         {
             Console.Write(this.from);
             Console.Write(this.to);
-
-            int passengers = 3;
-            double totalPrice = 0;
             List<Listing> listingsResult = new List<Listing>();  
-            // filter car type has max passengers
+ 
             foreach (var j in listings)
             {
-                if (j.vehicleType.maxPassengers >= passengers)
+                if (j.vehicleType.maxPassengers >= numPassengers)
                 {
                     j.totalPrice = numPassengers * j.pricePerPassenger;
                     listingsResult.Add(j);
@@ -56,11 +39,12 @@ namespace WebApplication6.Models
             }
  
             listingsResult = (List<Listing>)listingsResult.OrderBy(x => x.totalPrice).ToList();
- 
+            lowestPrice = listingsResult[0].totalPrice; ;
+
             return listingsResult;
         }
-         
-    
+
+
     }
 
         public class Listing
@@ -93,9 +77,7 @@ namespace WebApplication6.Models
         }
         public Listing()
         {
-            //this.name = "Listing";
-            //this.pricePerPassenger = 23.1;
-            //this.vehicleType = new VehicleType("Sedan", 3);
+
         }
     }
 }
